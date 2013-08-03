@@ -4,7 +4,7 @@ Provides tags functionality for [Pico](http://pico.dev7studios.com).
 
 Adds `/tag/` url, that allows displaying pages with only given tag (e.g. `/tags/pico`), index page displays only pages with tags, which gives distinction between tagged pages (which can be use as blog posts), and untagged (which can be used as *static* pages).
 
-To see **Pico Tags** in action you can visit [my website](http://treesmovethemost.com)
+To see **Pico Tags** in action you can visit [my website](http://treesmovethemost.com)!
 
 ##Installation
 
@@ -24,7 +24,7 @@ Tags: php,pico,plugin
 
 ```
 
-Setup theme index.html, example:
+Setup theme `index.html`, example:
 
 ```html
 

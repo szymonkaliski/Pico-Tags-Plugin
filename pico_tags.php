@@ -16,7 +16,6 @@ class Pico_Tags {
 	private $base_url;
 	private $current_url;
 	private $is_tag;
-	private $is_index;
 	private $current_meta;
 
 	// copied from pico source, $headers as array gives ability to add additional metadata, e.g. header image
@@ -66,7 +65,6 @@ class Pico_Tags {
 
 	public function config_loaded(&$settings) {
 		$this->base_url = $settings['base_url'];
-		$this->is_index = ($url == $this->current_url);
 	}
 
 	public function file_meta(&$meta) {
@@ -83,7 +81,9 @@ class Pico_Tags {
 		// this adds possiblity to distinct tagged pages (e.g. blog posts), 
 		// and untagged (e.g. static pages like "about")
 
-		if ($this->is_tag || $this->is_index) {
+		$is_index = ($this->base_url == $current_page["url"]);
+
+		if ($this->is_tag || $is_index) {
 			$new_pages = array();
 
 			foreach ($pages as $page) {
@@ -99,7 +99,7 @@ class Pico_Tags {
 
 				// append to pages array only if tags match, or if it's index page
 				$tags = $file_meta['tags'];
-				if (($tags && in_array($this->current_tag, $tags)) || $this->is_index) {
+				if (($tags && in_array($this->current_tag, $tags)) || $is_index) {
 					array_push($new_pages, $page);
 				}
 			}

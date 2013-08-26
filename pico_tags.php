@@ -30,7 +30,9 @@ class Pico_Tags {
 			}
 		}
 
-		$headers['tags'] = explode(',', $headers['tags']);
+		// only set $headers['tags'] if there are any
+		if (strlen($headers['tags']) > 1) $headers['tags'] = explode(',', $headers['tags']);
+		else $headers['tags'] = NULL;
 
 		return $headers;
 	}
@@ -78,7 +80,7 @@ class Pico_Tags {
 	public function get_pages(&$pages, &$current_page, &$prev_page, &$next_page) {
 		// display pages with current tag if visiting tag/ url
 		// display only pages with tags when visiting index page
-		// this adds possiblity to distinct tagged pages (e.g. blog posts), 
+		// this adds possiblity to distinct tagged pages (e.g. blog posts),
 		// and untagged (e.g. static pages like "about")
 
 		$is_index = ($this->base_url == $current_page["url"]);
@@ -95,12 +97,12 @@ class Pico_Tags {
 					$file_content = file_get_contents($file_name);
 					$file_meta = $this->read_file_meta($file_content);
 					$page = array_merge($page, $file_meta);
-				}
 
-				// append to pages array only if tags match, or if it's index page
-				$tags = $file_meta['tags'];
-				if (($tags && in_array($this->current_tag, $tags)) || $is_index) {
-					array_push($new_pages, $page);
+					// append to pages array only if tags match, or if it's index page
+					$tags = $file_meta['tags'];
+					if (count($tags) > 0 && (in_array($this->current_tag, $tags) || $is_index)) {
+						array_push($new_pages, $page);
+					}
 				}
 			}
 

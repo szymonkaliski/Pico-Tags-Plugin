@@ -50,8 +50,8 @@ Setup theme `index.html`, example:
 	<article>				
 		<h3>{{ meta.title }}</h3>
 		<div class="tags">
-			<!-- display page tags with proper urls -->
-			{% for tag in page.tags %}
+			<!-- display single page tags with proper urls -->
+			{% for tag in meta.tags %}
 				<a href="{{ base_url }}tag/{{ tag }}">#{{ tag }}</a>
 			{% endfor %}
 		</div>

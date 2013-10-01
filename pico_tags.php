@@ -15,6 +15,7 @@
 class Pico_Tags {
 	private $base_url;
 	private $current_url;
+	private $current_tag;
 	private $is_tag;
 	private $current_meta;
 

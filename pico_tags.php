@@ -84,7 +84,7 @@ class Pico_Tags {
 		// this adds possiblity to distinct tagged pages (e.g. blog posts),
 		// and untagged (e.g. static pages like "about")
 
-		$is_index = ($this->base_url == $current_page["url"]);
+		$is_index = ($this->base_url == $this->current_url);
 
 		if ($this->is_tag || $is_index) {
 			$new_pages = array();

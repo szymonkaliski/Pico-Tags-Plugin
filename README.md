@@ -37,7 +37,7 @@ Setup theme `index.html`, example:
 			<div class="tags">
 				<!-- display page tags with proper urls -->
 				{% for tag in page.tags %}
-						<a href="{{ base_url }}tag/{{ tag }}">#{{ tag }}</a>
+						<a href="{{ base_url }}/tag/{{ tag }}">#{{ tag }}</a>
 				{% endfor %}
 			</div>
 			<p>
@@ -52,7 +52,7 @@ Setup theme `index.html`, example:
 		<div class="tags">
 			<!-- display single page tags with proper urls -->
 			{% for tag in meta.tags %}
-				<a href="{{ base_url }}tag/{{ tag }}">#{{ tag }}</a>
+				<a href="{{ base_url }}/tag/{{ tag }}">#{{ tag }}</a>
 			{% endfor %}
 		</div>
 		<p>

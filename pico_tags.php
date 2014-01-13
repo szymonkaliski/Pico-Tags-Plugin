@@ -38,6 +38,11 @@ class Pico_Tags {
 		return $headers;
 	}
 
+	public function before_read_file_meta(&$headers) {
+		// Define tags variable
+		$headers['tags'] = 'Tags';
+	}
+
 	public function plugins_loaded() {
 
 	}
@@ -71,7 +76,10 @@ class Pico_Tags {
 	}
 
 	public function file_meta(&$meta) {
-
+		// Parses meta.tags to ensure it is an array
+		if (isset($meta['tags']) && !is_array($meta['tags']) && $meta['tags'] !== '') {
+			$meta['tags'] = explode(',', $meta['tags']);
+		}
 	}
 
 	public function content_parsed(&$content) {
@@ -134,6 +142,15 @@ class Pico_Tags {
 	public function after_render(&$output) {
 
 	}
+
+	public function get_page_data(&$data, $page_meta) {
+		// If tags in page_meta isn't empty
+		if ($page_meta['tags'] != '') {
+			// Add tags to page in pages
+			$data['tags'] = explode(',', $page_meta['tags']);
+	}
+}
+
 }
 
 ?>

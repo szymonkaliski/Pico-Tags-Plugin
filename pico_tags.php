@@ -32,7 +32,7 @@ class Pico_Tags {
 		}
 
 		// only set $headers['tags'] if there are any
-		if (strlen($headers['tags']) > 1) $headers['tags'] = explode(',', $headers['tags']);
+		if (strlen($headers['tags']) > 1) $headers['tags'] = array_map('trim', explode(',', $headers['tags']));
 		else $headers['tags'] = NULL;
 
 		return $headers;

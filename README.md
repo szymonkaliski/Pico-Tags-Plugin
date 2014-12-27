@@ -1,5 +1,7 @@
 #Pico Tags Plugin
 
+**Pico Tags Plugin is depracated**, I've switched long ago to other ways of buliding [my website](http://treesmovethemost.com) (currently statically generated with harp.js), and I am no longer mainting this, you can try looking for forks on github.
+
 Provides tags functionality for [Pico](http://pico.dev7studios.com).
 
 Adds `/tag/` url, that allows displaying pages with only given tag (e.g. `/tags/pico`), index page displays only pages with tags, which gives distinction between tagged pages (which can be use as blog posts), and untagged (which can be used as *static* pages).

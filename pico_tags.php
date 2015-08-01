@@ -119,6 +119,7 @@ class Pico_Tags {
 		if ($this->is_tag) {
 			// override 404 header
 			header($_SERVER['SERVER_PROTOCOL'].' 200 OK');
+			$twig_vars["is_tags"] = true;
 			
 			// set as front page, allows using the same navigation for index and tag pages
 			$twig_vars["is_front_page"] = true;
